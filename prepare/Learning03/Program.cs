@@ -5,70 +5,21 @@ class Program
 {
     static void Main(string[] args)
     {  
-        Journal journal = new Journal();
-       
-       int i = 0;
-       do 
-       {
-       Console.WriteLine();
-            Console.WriteLine("What would you like to do?");
-            Console.WriteLine();
-            Console.WriteLine("1. Write");
-            Console.WriteLine("2. Display");
-            Console.WriteLine("3. Load");
-            Console.WriteLine("4. Save");
-            Console.WriteLine("5. Quit");
-            i = Convert.ToInt32(Console.ReadLine());
-            
-       if( i == 1){
-            //access the Entry class
-            journal.AddEntry();
+        Fraction option1 = new Fraction();
+        Console.WriteLine(option1.GetFractionString());
+        Console.WriteLine(option1.DecimalValue());
 
-       }
-       else if ( i == 2) {
-        journal.Display();
+        Fraction option2 = new Fraction(5);
+        Console.WriteLine(option2.GetFractionString());
+        Console.WriteLine(option2.DecimalValue());
 
-       }
-       else if (i == 3){
-        Console.WriteLine("What is the filename?");
-                string filename = Console.ReadLine();
-                if (filename == "journal.txt")
-                {
-                    journal.Load();
-                    Console.WriteLine("Loading...");
-                    Console.WriteLine("File loaded");
-                    Console.WriteLine();
-                }
-                else
-                {
-                    {
-                        Console.WriteLine();
-                        Console.WriteLine("Sorry, this file doesn't exist.");
-                        Console.WriteLine();
-                    }
-                }
-       }
-       else if (i == 4){
-            Console.WriteLine("What is the filename?");
-                string filename = Console.ReadLine();
-                if (filename == "journal.txt")
-                {
-                    journal.save();
-                    Console.WriteLine("It's saved");
-                    Console.WriteLine();
-                }
-                else
-                {
-                    {
-                        Console.WriteLine();
-                        Console.WriteLine("Sorry, try again. Wrong File name.");
-                        Console.WriteLine();
-                    }
-                }
-       }
-       } while (i < 5);
+        Fraction option3 = new Fraction(3, 4);
+        Console.WriteLine(option3.GetFractionString());
+        Console.WriteLine(option3.DecimalValue());
 
-
+        Fraction option4 = new Fraction(1, 3);
+        Console.WriteLine(option4.GetFractionString());
+        Console.WriteLine(option4.DecimalValue());
     }
 
 }

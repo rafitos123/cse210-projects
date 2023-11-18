@@ -1,0 +1,4 @@
+500
+Simple Goal: eat more, eat more orange, 50, True
+Eternal Goal: go to temple, go to temple per month, 100
+Simple Goal: go to gym, go to gym every week, 100, 3, 3, 50

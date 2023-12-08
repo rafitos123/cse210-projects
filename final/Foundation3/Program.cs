@@ -33,7 +33,7 @@ class Program
         Console.WriteLine();
 
         //short
-        Console.WriteLine("Shor details: \n");
+        Console.WriteLine("Short details: \n");
         Console.WriteLine(TheEvent.GetShort());
     }   
 

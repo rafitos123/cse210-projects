@@ -1,0 +1,119 @@
+diff --git a/final/Foundation1/Comments.cs b/final/Foundation1/Comments.cs
+index 6efcc91..1907491 100644
+--- a/final/Foundation1/Comments.cs
++++ b/final/Foundation1/Comments.cs
+@@ -2,6 +2,7 @@ using System;
+ 
+ public class Comments
+ {
++    // SMT should be private
+     public string _name;
+     public string _text;
+ 
+@@ -10,4 +11,6 @@ public class Comments
+         _name = name;
+         _text = text;
+     }
++
++    // SMT create a method, like ToString() that returns a formated string for displaying.
+ }
+\ No newline at end of file
+diff --git a/final/Foundation1/youtube.cs b/final/Foundation1/youtube.cs
+index e48b740..d31aecd 100644
+--- a/final/Foundation1/youtube.cs
++++ b/final/Foundation1/youtube.cs
+@@ -1,7 +1,9 @@
+ using System;
+ 
++// SMT technically this class should be Video
+ public class Youtube
+ {
++    // SMT should be private
+     public string _title;
+     public string _author;
+     public int _length; 
+@@ -25,5 +27,7 @@ public class Youtube
+     {
+         return _comments.Count();
+     }
++
++    // SMT create ToString() method that return formatted string that represents class. Take a look at StringBuilder
+ }
+ 
+diff --git a/final/Foundation2/Adress.cs b/final/Foundation2/Adress.cs
+index 9622048..1a39683 100644
+--- a/final/Foundation2/Adress.cs
++++ b/final/Foundation2/Adress.cs
+@@ -17,14 +17,8 @@ public class Adress
+ 
+     public bool GetCountry()
+     {
+-        if(_country == "USA")
+-        {
+-           return true;
+-        }
+-        else
+-        {
+-            return false;
+-        }
++        // SMT this can be simplified and handle lower case
++        return _country.ToUpper() == "USA";
+     }
+ 
+     public string GetAdress()
+diff --git a/final/Foundation2/Costumer.cs b/final/Foundation2/Costumer.cs
+index 18018f7..7ee79ce 100644
+--- a/final/Foundation2/Costumer.cs
++++ b/final/Foundation2/Costumer.cs
+@@ -16,6 +16,7 @@ public class Costumer
+         return _adress.GetCountry();
+     }
+ 
++    // SMT consider ToString method that consolidates the following methods.
+     public string FullAdress()
+     {
+         return _adress.GetAdress();
+diff --git a/final/Foundation2/Order.cs b/final/Foundation2/Order.cs
+index 7aef36f..fcdcc6b 100644
+--- a/final/Foundation2/Order.cs
++++ b/final/Foundation2/Order.cs
+@@ -5,6 +5,8 @@ public class Order
+     private List<Product> _product = new List<Product>();
+     //private List<Costumer> _costumer = new List<Costumer>();
+     private Costumer _costumer;
++
++    // SMT although private by default, better to explicitly specify private
+     int TotalPrice = 0;
+     string _packingLabel = "Product:";
+     string _shipping = "Shipping:";
+@@ -19,7 +21,9 @@ public class Order
+ 
+     public int GetTotal()
+     {
+-        
++        // SMT Since TotalPrice is return by this method, create a TotalPrice scoped to this methods and remove the attribute
++        int TotalPrice = 0;
++
+         foreach(Product myProduct in _product)
+         {
+             TotalPrice = TotalPrice + myProduct.GetPriceQuantity();
+@@ -50,6 +54,7 @@ public class Order
+         
+     }
+ 
++    // SMT don't use Console in your classes.
+     public string GetShipping()
+     {
+         Console.WriteLine();
+diff --git a/final/Foundation2/product.cs b/final/Foundation2/product.cs
+index fdf3824..8809170 100644
+--- a/final/Foundation2/product.cs
++++ b/final/Foundation2/product.cs
+@@ -15,6 +15,7 @@ public class Product
+         _quantity = quantity;
+     }
+ 
++    // SMT consider consolidating the following methods into a ToString(). Take a look at StringBuilder
+     public int GetPriceQuantity()
+     {
+         return _price * _quantity;
